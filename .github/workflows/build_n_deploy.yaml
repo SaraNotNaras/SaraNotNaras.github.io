@@ -24,7 +24,7 @@ jobs:
       - name: Setup Gozer
         run: go install git.sr.ht/~dvko/gozer@latest
       - name: Build
-        run: gozer --root ${{ github.workspace }} build 
+        run: gozer build 
       - name: Upload static files as artifact
         id: deployment
         uses: actions/upload-pages-artifact@v3
