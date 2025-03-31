@@ -1,0 +1,28 @@
+{{ template "header.html" .}}
+<main>
+        {{ $year := 0 }}
+        {{ range $.Posts }}
+                <ul>
+                        <li>
+                                <time datetime="{{ .DatePublished }}">{{ .DatePublished.Format "2006-01-02" }}</time>
+                                <a href="/{{ .UrlPath }}">{{ .Title }}</a>
+                        </li>
+                </ul>
+        <!--
+                {{- if not (eq .DatePublished.Year $year) }}
+                        {{- if gt $year 0 }}
+                                </ul>
+                        {{- end }}
+                        <h2>{{ .DatePublished.Year }}</h2>
+                        <ul>
+                        {{- $year = .DatePublished.Year -}}
+                {{ end }}
+                <li>
+                        <a href="/{{ .UrlPath }}">{{ .Title }}</a><br />
+                        <small>{{ .DatePublished.Format "Jan 2, 2006" }}</small>
+                </li>
+        -->
+        {{- end -}}
+        </ul>
+</main>
+{{ template "footer.html" .}}
